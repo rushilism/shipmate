@@ -16,15 +16,7 @@ const customFormat = (value) => `${value.format(dateFormat)}`;
 
 
 
-// const options = {
-//   method: 'GET',
-//   url: 'https://wft-geo-db.p.rapidapi.com/v1/geo/cities',
-//   headers: {
-//     'content-type': 'application/octet-stream',
-//     'X-RapidAPI-Key': '65140ea9e0msh15f4abfd1d45ee5p16a9b0jsn155ae023ad96',
-//     'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com'
-//   }
-// };
+
 
 
 
@@ -48,15 +40,7 @@ const SearchBar = ({handleSearch, recentSearches}) => {
     // setIsActive(true)
   };
 
-  // const [cities, setCities] = useState()
-
-  // useEffect(() => {
-  //   axios.request(options).then(function (response) {
-  //     setCities(response.data.data[0].city);
-  //   }).catch(function (error) {
-  //     console.error(error);
-  //   });
-  // }, []);
+ 
 
 
   return (
