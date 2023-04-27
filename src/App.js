@@ -1,24 +1,55 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import Chat from './components/Chat';
+import Homepage from './pages/Homepage';
+import ShippingDetails from './pages/ShippingDetails';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import Booking from './pages/Booking';
+
+
 
 function App() {
+
+
+  const [searchTerm, setSearchTerm] = useState('');
+  const [recentSearches, setRecentSearches] = useState([]);
+
+  useEffect(() => {
+    const storedSearches = localStorage.getItem("recentSearches");
+    if (storedSearches) {
+      setRecentSearches(JSON.parse(storedSearches));
+    }
+  }, []);
+
+  const handleSearch = (searchTerm) => {
+    setSearchTerm(searchTerm);
+    if (searchTerm) {
+      const updatedRecentSearches = [
+        searchTerm,
+        ...recentSearches.filter((search) => search !== searchTerm).slice(0, 4)
+      ];
+      setRecentSearches(updatedRecentSearches);
+      localStorage.setItem(
+        "recentSearches",
+        JSON.stringify(updatedRecentSearches)
+      );
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Chat />
+     
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Homepage handleSearch={handleSearch} searchTerm={searchTerm} recentSearches={recentSearches} />} />
+          <Route path='/shipping' element={<ShippingDetails handleSearch={handleSearch} searchTerm={searchTerm} recentSearches={recentSearches} />} />
+          <Route path='/booking' element={<Booking   />} />
+        </Routes>
+      </BrowserRouter>
+
+
+    </>
   );
 }
 

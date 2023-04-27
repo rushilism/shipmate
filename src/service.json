@@ -1,0 +1,28 @@
+
+
+[
+    {
+        "id":0,
+        "imgUrl":"../assets/ship.svg",
+        "title":"Freight Services",
+        "content":"Open new Opportunites to grow your busniess. Enter new markets and discover new contitnents, We are with you, door-to-door."
+    },
+    {
+        "id":1,
+        "imgUrl":"../assets/briefcase.svg",
+        "title":"Business Services",
+        "content":"We support your goals for growth with cargo insurance, online payments and paperless workflow. Take your business to the next level."
+    },
+    {
+        "id":2,
+        "imgUrl":"../assets/globalsearch.svg",
+        "title":"Shipping & Logistics",
+        "content":"Find powerful solutions to meet your diverse transportation needs. Agile solutions to handle all your supply chain needs."
+    },
+    {
+        "id":3,
+        "imgUrl":"../assets/i24support.svg",
+        "title":"24/7 Support",
+        "content":"Receive support from our experts all over the world at every stage of the process, 24/7."
+    }
+]
